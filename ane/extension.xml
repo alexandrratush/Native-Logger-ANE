@@ -1,0 +1,23 @@
+<extension xmlns="http://ns.adobe.com/air/extension/15.0">
+	<id>com.alexandrratush.ane.nativelogger</id>
+	<versionNumber>1</versionNumber>
+	<platforms>
+		<platform name="Android-ARM">
+			<applicationDeployment>
+				<nativeLibrary>extension.jar</nativeLibrary>
+				<initializer>com.alexandrratush.ane.NativeLoggerExtension</initializer>
+				<finalizer>com.alexandrratush.ane.NativeLoggerExtension</finalizer>
+			</applicationDeployment>
+		</platform>
+		<platform name="Android-x86">
+			<applicationDeployment>
+				<nativeLibrary>extension.jar</nativeLibrary>
+				<initializer>com.alexandrratush.ane.NativeLoggerExtension</initializer>
+				<finalizer>com.alexandrratush.ane.NativeLoggerExtension</finalizer>
+			</applicationDeployment>
+		</platform>
+		<platform name="default"> 
+            <applicationDeployment/> 
+        </platform> 
+	</platforms>
+</extension>

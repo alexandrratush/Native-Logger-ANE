@@ -1,0 +1,78 @@
+<project name="Build dialogs ane" default="build" basedir=".">
+
+	<!-- SDKs properties -->
+	<property file="../sdk.properties"/>
+	<!-- project properties -->
+	<property file="build.properties"/>
+	
+	<target name="make_temp_dirs" description="Making temp folders">
+		<delete dir="bin"/>
+		<delete dir="temp"/>
+		<mkdir dir="bin"/>
+		<mkdir dir="temp"/>
+		<mkdir dir="temp/java_libs/"/>
+		<mkdir dir="temp/swc_libs/"/>
+		<mkdir dir="temp/ane/"/>
+		<mkdir dir="temp/ane/android/"/>
+		<mkdir dir="temp/ane/default/"/>
+	</target>
+	
+	<target name="compile_swc" description="Making swc lib">
+		<java jar="${compc}" fork="true" failonerror="true">
+			<arg value="-load-config=${airmobile_config}"/>
+			<arg value="-swf-version=${swf_version}"/>
+			<arg value="-source-path+=${as3_source_path}"/>
+			<arg value="-include-sources+=${as3_source_path}"/>
+			<arg value="-output=temp/swc_libs/extension.swc"/>
+		</java>
+	</target>
+	
+	<target name="compile_jar" description="Making jar lib">
+		<javac compiler="${java_compiler}"
+			source="${javac_source}"
+			target="${javac_target}"
+			bootclasspath="${rt_jar}"
+			failonerror="true"
+			srcdir="${android_source_path}"
+			destdir="temp/java_libs"
+			classpath="${fre_jar}:${android_jar}"
+			includeantruntime="false">
+		</javac>
+		<jar basedir="temp/java_libs" destfile="temp/ane/android/extension.jar"/>
+	</target>
+	
+	<target name="copy_files" description="Files operations">
+		<unzip src="temp/swc_libs/extension.swc" dest="temp/swc_libs/"/>
+		<copy file="${extension_xml}" tofile="temp/ane/${extension_xml}"/>
+		<copy file="temp/swc_libs/library.swf" tofile="temp/ane/android/library.swf"/>
+		<move file="temp/swc_libs/library.swf" tofile="temp/ane/default/library.swf"/>
+		<move file="temp/swc_libs/extension.swc" tofile="temp/ane/extension.swc"/>
+	</target>
+	
+	<target name="build_ane" description="Building ane">
+		<echo message="Building ane file"/>
+		<java jar="${adt}" dir="${basedir}" fork="true" failonerror="true">
+			<arg value="-package"/>
+			<arg value="-target"/>
+			<arg value="ane"/>
+			<arg value="bin/${extension_name}"/>
+			<arg value="temp/ane/${extension_xml}"/>
+			<arg line="-swc"/>
+			<arg line="temp/ane/extension.swc"/>
+			<arg line="-platform Android-ARM -C temp/ane/android/ ."/>
+			<arg line="-platform Android-x86 -C temp/ane/android/ ."/>
+			<arg line="-platform default -C temp/ane/default/ ."/>
+		</java>
+	</target>
+	
+	<target name="clear" description="Delete temp folders and files">
+		<delete dir="temp"/>
+	</target>
+	
+	<target name="copy_ane" description="Copy ane to example projects">
+ 		<copy file="bin/${extension_id}.ane" tofile="../example/ane/${extension_id}.ane"/>
+ 	</target>
+	
+	<target name="build" depends="make_temp_dirs, compile_swc, compile_jar, copy_files, build_ane, clear, copy_ane"/>
+
+</project>
