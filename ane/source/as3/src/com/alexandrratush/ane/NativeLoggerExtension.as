@@ -35,6 +35,31 @@ package com.alexandrratush.ane
             _context.addEventListener(StatusEvent.STATUS, onStatusEventHandler);
         }
 
+        public function debug(tag:String, message:String):void
+        {
+            _context.call("debug", tag, message);
+        }
+
+        public function error(tag:String, message:String):void
+        {
+            _context.call("error", tag, message);
+        }
+
+        public function info(tag:String, message:String):void
+        {
+            _context.call("info", tag, message);
+        }
+
+        public function verbose(tag:String, message:String):void
+        {
+            _context.call("verbose", tag, message);
+        }
+
+        public function warn(tag:String, message:String):void
+        {
+            _context.call("warn", tag, message);
+        }
+
         protected function onStatusEventHandler(e:StatusEvent):void
         {
             dispatchEvent(e);

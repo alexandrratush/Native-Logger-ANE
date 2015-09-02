@@ -5,6 +5,8 @@ import com.adobe.fre.FREExtension;
 
 public class NativeLoggerExtension implements FREExtension {
 
+    public static final String ERROR_EVENT = "error";
+
     public FREContext context;
 
     @Override
