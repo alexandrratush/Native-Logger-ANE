@@ -8,12 +8,15 @@
             <entry library-name="lib" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="ane" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_18.0" />
         </dependencies>
         <compiler-options />
         <packaging-air-desktop />
-        <packaging-android enabled="true" package-file-name="Main" />
+        <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/Main-app.xml" package-file-name="Main" />
         <packaging-ios package-file-name="Main" />
       </configuration>
     </configurations>
@@ -27,5 +30,6 @@
     <orderEntry type="jdk" jdkName="AIRSDK_18.0" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="lib" level="project" />
+    <orderEntry type="library" exported="" name="ane" level="project" />
   </component>
 </module>
