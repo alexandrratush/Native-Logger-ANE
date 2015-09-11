@@ -70,7 +70,7 @@
 	</target>
 	
 	<target name="copy_ane" description="Copy ane to example projects">
- 		<copy file="bin/${extension_id}.ane" tofile="../example/ane/${extension_id}.ane"/>
+ 		<copy file="bin/${extension_name}" tofile="../example/ane/${extension_name}"/>
  	</target>
 	
 	<target name="build" depends="make_temp_dirs, compile_swc, compile_jar, copy_files, build_ane, clear, copy_ane"/>
