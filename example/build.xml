@@ -1,4 +1,4 @@
-<project name="Build and install toast example project" default="android" basedir=".">
+<project name="Build and install demo project" default="android" basedir=".">
 
 	<!-- SDKs properties -->
 	<property file="../sdk.properties"/>
