@@ -1,4 +1,4 @@
-<project name="Build dialogs ane" default="build" basedir=".">
+<project name="Build ane" default="build" basedir=".">
 
 	<!-- SDKs properties -->
 	<property file="../sdk.properties"/>
