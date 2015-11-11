@@ -1,15 +1,4 @@
-# Build and Release Folders For FD
-**/bin/*.swf
-!**/bin/expressInstall.swf
-obj/
-
-# Build and Release Folders For FB
-bin-debug/
-bin-release/
-
-# IDEA projects
-**/.idea/
-**/out/
-
-*.p12
-build.local.properties
+# ant properties files
+ane/build.properties
+demo/build.properties
+sdk.properties
