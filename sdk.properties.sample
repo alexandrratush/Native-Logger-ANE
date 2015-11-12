@@ -4,9 +4,7 @@ JAVA_SDK_ROOT = C:/Program Files/Java/jdk1.7.0_79
 ANDROID_SDK_ROOT = D:/ProgramFiles/Android/sdk
 
 # config files
-flashplayer_config = ${AIR_SDK_ROOT}/frameworks/flex-config.xml
-airdesktop_config = ${AIR_SDK_ROOT}/frameworks/air-config.xml
-airmobile_config = ${AIR_SDK_ROOT}/frameworks/airmobile-config.xml
+air_mobile_config = ${AIR_SDK_ROOT}/frameworks/airmobile-config.xml
 
 # path to compiler jars
 android_jar = ${ANDROID_SDK_ROOT}/platforms/android-21/android.jar
