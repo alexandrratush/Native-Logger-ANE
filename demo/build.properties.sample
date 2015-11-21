@@ -1,0 +1,19 @@
+source_path = src
+libs_path = lib
+ane_path = ane
+root_class = ${source_path}/Main.as
+app_descriptor = Main-app.xml
+output_path = out/production/Demo
+swf_name = NativeLoggerDemo.swf
+swf_version = 18
+
+appid = com.aratush.extensions.NativeLoggerDemo
+
+android_apk_name = NativeLoggerDemo.apk
+android_target = apk-captive-runtime
+android_certificate_path = cert
+android_certificate_name = android_certificate.p12
+android_certificate_pass = pass
+
+extension_path = ../ane/bin
+extension_name = NativeLogger.ane

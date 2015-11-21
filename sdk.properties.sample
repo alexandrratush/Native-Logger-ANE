@@ -1,18 +1,12 @@
 # The location of the SDKs.
-AIR_SDK_ROOT = D:/ProgramFiles/AIRSDK_Compiler
-JAVA_SDK_ROOT = C:/Program Files/Java/jdk1.7.0_79
-ANDROID_SDK_ROOT = D:/ProgramFiles/Android/sdk
+AIRSDK_HOME = ${env.AIRSDK_HOME}
+JAVA_HOME = ${env.JAVA_HOME}
+ANDROID_HOME = ${env.ANDROID_HOME}
 
 # config files
-air_mobile_config = ${AIR_SDK_ROOT}/frameworks/airmobile-config.xml
+air_mobile_config = ${AIRSDK_HOME}/frameworks/airmobile-config.xml
 
 # path to compiler jars
-android_jar = ${ANDROID_SDK_ROOT}/platforms/android-21/android.jar
-rt_jar = ${JAVA_SDK_ROOT}/jre/lib/rt.jar
-fre_jar = ${AIR_SDK_ROOT}/lib/android/FlashRuntimeExtensions.jar
-java_compiler = javac1.7
-javac_source = 1.7
-javac_target = 1.7
-compc = ${AIR_SDK_ROOT}/lib/compc-cli.jar
-mxmlc = ${AIR_SDK_ROOT}/lib/mxmlc-cli.jar
-adt = ${AIR_SDK_ROOT}/lib/adt.jar
+compc = ${AIRSDK_HOME}/lib/compc-cli.jar
+mxmlc = ${AIRSDK_HOME}/lib/mxmlc-cli.jar
+adt = ${AIRSDK_HOME}/lib/adt.jar
