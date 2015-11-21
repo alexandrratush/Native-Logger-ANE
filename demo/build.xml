@@ -1,44 +1,23 @@
 <project name="Build and install demo project" default="android" basedir=".">
 
-	<!-- SDKs properties -->
+	<property environment="env"/>
 	<property file="../sdk.properties"/>
-	<!-- project properties -->
 	<property file="build.properties"/>
-	<property file="build.local.properties"/>
 	
-	<target name="install_android" description="Install apk to the android device">
-		<echo message="Uninstall ${apk_name}"/>
-		<java jar="${adt}" dir="${basedir}" fork="true" failonerror="false">
-			<arg value="-uninstallApp"/>
-			<arg value="-platform"/>
-			<arg value="android"/>
-			<arg value="-appid"/>
-			<arg value="${appid}"/>
-		</java>
-		<echo message="Install ${apk_name}"/>
-		<java jar="${adt}" dir="${basedir}" fork="true" failonerror="true">
-			<arg value="-installApp"/>
-			<arg value="-platform"/>
-			<arg value="android"/>
-			<arg value="-package"/>
-			<arg value="${output_path}/${apk_name}"/>
-		</java>
-	</target>
-	
-	<target name="build_android" depends="build_air_swf"  description="Prepare android apk">
-		<echo message="Packaging ${apk_name}"/>
-		<echo message="Certificate_file: ${android_cert_file}"/>
+	<target name="build_android" depends="build_swf"  description="Build android apk">
+		<echo message="Packaging ${android_apk_name} with ${android_target}"/>
+		<echo message="Certificate_file: ${android_certificate_path}/${android_certificate_name}"/>
 		<java jar="${adt}" dir="${basedir}" fork="true" failonerror="true">
 			<arg value="-package"/>
 			<arg value="-target"/>
-			<arg value="apk-captive-runtime"/>
+			<arg value="${android_target}"/>
 			<arg value="-storetype"/>
 			<arg value="pkcs12"/>
 			<arg value="-keystore"/>
-			<arg value="${android_cert_file}"/>
+			<arg value="${android_certificate_path}/${android_certificate_name}"/>
 			<arg value="-storepass"/>
-			<arg value="${android_cert_pass}"/>
-			<arg value="${output_path}/${apk_name}"/>
+			<arg value="${android_certificate_pass}"/>
+			<arg value="${output_path}/${android_apk_name}"/>
 			<arg value="${app_descriptor}"/>
 			<arg value="-C"/>
 			<arg value="${output_path}"/>
@@ -48,10 +27,10 @@
 		</java>
 	</target>
 	
-	<target name="build_air_swf" depends="prepare, copy ane"  description="Build swf">
+	<target name="build_swf" description="Build swf">
 		<echo message="Building air swf"/>
 		<java jar="${mxmlc}" dir="${basedir}" fork="true" failonerror="true">
-			<arg value="-load-config=${airmobile_config}"/>
+			<arg value="-load-config=${air_mobile_config}"/>
 			<arg value="-swf-version=${swf_version}"/>
 			<arg value="-source-path+=${source_path}"/>
 			<arg value="${root_class}"/>
@@ -62,31 +41,43 @@
 	</target>
 	
 	<target name="prepare" description="Prepare files">
-		<delete dir="${output_path}"/>
-	</target>
-	
-	<target name="copy ane" description="Copy the last ane version">
+		<delete quiet="true" dir="${output_path}"/>
 		<copy file="${extension_path}/${extension_name}" tofile="${ane_path}/${extension_name}" overwrite="true"/>
 	</target>
 	
-	<target name="android" depends="build_android, install_android"/>
-	
-	<target name="make_android_certificate" description="Making certificate" depends="prepare_cert_dir">
-		<echo message="Making certificate for android"/>
-		<java jar="${adt}" dir="${basedir}" fork="true" failonerror="true">
-			<arg value="-certificate"/>
-			<arg value="-cn"/>
-			<arg value="${android_cert_name}"/>
-			<arg value="2048-RSA"/>
-			<arg value="${android_cert_path}/${android_cert_name}"/>
-			<arg value="${android_cert_pass}"/>
+	<target name="uninstallApp" description="Uninstall apk">
+		<echo message="Uninstall ${android_apk_name}"/>
+		<java jar="${adt}" dir="${basedir}" fork="true" failonerror="false">
+			<arg value="-uninstallApp"/>
+			<arg value="-platform"/>
+			<arg value="android"/>
+			<arg value="-appid"/>
+			<arg value="${appid}"/>
 		</java>
 	</target>
 	
-	<target name="prepare_cert_dir" description="Prepare files">
-		<delete>
-			<fileset dir="${android_cert_path}" excludes="README.md"/>
-		</delete>
+	<target name="installApp" depends="uninstallApp" description="Install apk to the android device">
+		<echo message="Install ${output_path}/${android_apk_name}"/>
+		<java jar="${adt}" dir="${basedir}" fork="true" failonerror="true">
+			<arg value="-installApp"/>
+			<arg value="-platform"/>
+			<arg value="android"/>
+			<arg value="-package"/>
+			<arg value="${output_path}/${android_apk_name}"/>
+		</java>
 	</target>
+	
+	<target name="launchApp" description="Launch application">
+		<echo message="Launch ${android_apk_name}"/>
+		<java jar="${adt}" dir="${basedir}" fork="true" failonerror="true">
+			<arg value="-launchApp"/>
+			<arg value="-platform"/>
+			<arg value="android"/>
+			<arg value="-appid"/>
+			<arg value="${appid}"/>
+		</java>
+	</target>
+	
+	<target name="android" depends="prepare, build_android, installApp, launchApp"/>
 
 </project>

@@ -12,7 +12,7 @@
 
     <!-- A universally unique application identifier. Must be unique across all AIR applications.
          Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-    <id>com.alexandrratush.extensions.NativeLoggerDemo</id>
+    <id>com.aratush.extensions.NativeLoggerDemo</id>
 
     <!-- Used as the filename for the application. Required. -->
     <filename>NativeLoggerDemo</filename>
@@ -42,7 +42,7 @@
 
     <!-- Identifies the ActionScript extensions used by an application. -->
     <extensions>
-        <extensionID>com.alexandrratush.ane.nativelogger</extensionID>
+        <extensionID>com.aratush.ane.NativeLogger</extensionID>
     </extensions>
 
     <!-- Settings for the application's initial window. Required. -->

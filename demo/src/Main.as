@@ -1,7 +1,7 @@
 package
 {
 
-    import com.alexandrratush.ane.NativeLoggerExtension;
+    import com.aratush.ane.NativeLoggerExtension;
     import com.bit101.components.PushButton;
 
     import flash.display.Sprite;
