@@ -6,7 +6,7 @@ package com.aratush.ane
 
     public class NativeLoggerExtension extends EventDispatcher
     {
-        public static const EXTENSION_ID:String = "com.aratush.ane.Nativelogger";
+        public static const EXTENSION_ID:String = "com.aratush.ane.NativeLogger";
 
         private static var _instance:NativeLoggerExtension;
         private static var _isConstructing:Boolean;

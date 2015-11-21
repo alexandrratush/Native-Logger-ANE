@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <extension xmlns="http://ns.adobe.com/air/extension/15.0">
-	<id>com.aratush.ane.Nativelogger</id>
+	<id>com.aratush.ane.NativeLogger</id>
 	<versionNumber>1</versionNumber>
 	<platforms>
 		<platform name="Android-ARM">
