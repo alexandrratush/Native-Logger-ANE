@@ -1,4 +1,4 @@
-package com.alexandrratush.ane;
+package com.aratush.ane;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;

@@ -1,4 +1,4 @@
-package com.alexandrratush.ane;
+package com.aratush.ane;
 
 import android.util.Log;
 import com.adobe.fre.FREContext;

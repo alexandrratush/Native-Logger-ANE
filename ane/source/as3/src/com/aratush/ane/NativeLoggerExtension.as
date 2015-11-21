@@ -1,4 +1,4 @@
-package com.alexandrratush.ane
+package com.aratush.ane
 {
     import flash.events.EventDispatcher;
     import flash.events.StatusEvent;
@@ -6,7 +6,7 @@ package com.alexandrratush.ane
 
     public class NativeLoggerExtension extends EventDispatcher
     {
-        public static const EXTENSION_ID:String = "com.alexandrratush.ane.nativelogger";
+        public static const EXTENSION_ID:String = "com.aratush.ane.Nativelogger";
 
         private static var _instance:NativeLoggerExtension;
         private static var _isConstructing:Boolean;
@@ -31,8 +31,11 @@ package com.alexandrratush.ane
 
         public function init():void
         {
-            _context = ExtensionContext.createExtensionContext(EXTENSION_ID, "");
-            _context.addEventListener(StatusEvent.STATUS, onStatusEventHandler);
+            if (_context == null)
+            {
+                _context = ExtensionContext.createExtensionContext(EXTENSION_ID, "");
+                _context.addEventListener(StatusEvent.STATUS, onStatusEventHandler);
+            }
         }
 
         public function debug(tag:String, message:String):void
@@ -67,9 +70,12 @@ package com.alexandrratush.ane
 
         public function dispose():void
         {
-            _context.removeEventListener(StatusEvent.STATUS, onStatusEventHandler);
-            _context.dispose();
-            _context = null;
+            if (_context != null)
+            {
+                _context.removeEventListener(StatusEvent.STATUS, onStatusEventHandler);
+                _context.dispose();
+                _context = null;
+            }
         }
     }
 }
