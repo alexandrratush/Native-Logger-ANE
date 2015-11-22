@@ -11,9 +11,9 @@ appid = com.aratush.extensions.NativeLoggerDemo
 
 android_apk_name = NativeLoggerDemo.apk
 android_target = apk-captive-runtime
-android_certificate_path = cert
-android_certificate_name = android_certificate.p12
-android_certificate_pass = pass
+android_cert_path = cert
+android_cert_name = android_cert.p12
+android_cert_pass = pass
 
 extension_path = ../ane/bin
 extension_name = NativeLogger.ane

@@ -6,7 +6,7 @@
 	
 	<target name="build_android" depends="build_swf"  description="Build android apk">
 		<echo message="Packaging ${android_apk_name} with ${android_target}"/>
-		<echo message="Certificate_file: ${android_certificate_path}/${android_certificate_name}"/>
+		<echo message="Certificate_file: ${android_cert_path}/${android_cert_name}"/>
 		<java jar="${adt}" dir="${basedir}" fork="true" failonerror="true">
 			<arg value="-package"/>
 			<arg value="-target"/>
@@ -14,9 +14,9 @@
 			<arg value="-storetype"/>
 			<arg value="pkcs12"/>
 			<arg value="-keystore"/>
-			<arg value="${android_certificate_path}/${android_certificate_name}"/>
+			<arg value="${android_cert_path}/${android_cert_name}"/>
 			<arg value="-storepass"/>
-			<arg value="${android_certificate_pass}"/>
+			<arg value="${android_cert_pass}"/>
 			<arg value="${output_path}/${android_apk_name}"/>
 			<arg value="${app_descriptor}"/>
 			<arg value="-C"/>
