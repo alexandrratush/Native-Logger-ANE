@@ -1,0 +1,8 @@
+<project name="Build" default="build" basedir=".">
+
+	<target name="build">
+		<ant dir="ane"/>
+		<ant dir="demo"/>
+	</target>
+
+</project>
