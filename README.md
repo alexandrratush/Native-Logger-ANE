@@ -1,8 +1,6 @@
 Native Logger ANE (Android)
 =============================
-Native Extension for Adobe AIR.
-
-[![Build Status](https://travis-ci.org/alexandrratush/Native-Logger-ANE.svg?branch=master)](https://travis-ci.org/alexandrratush/Native-Logger-ANE)
+######Native Extension for Adobe AIR [![Build Status](https://travis-ci.org/alexandrratush/Native-Logger-ANE.svg?branch=master)](https://travis-ci.org/alexandrratush/Native-Logger-ANE)
 This ane is using the [**android.util.Log**](http://developer.android.com/intl/ru/reference/android/util/Log.html) class. This allows you print out messages to the [**LogCat**](http://developer.android.com/intl/ru/tools/help/logcat.html).
 
 ####Using the ANE:
