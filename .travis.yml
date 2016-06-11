@@ -1,0 +1,28 @@
+# required to get an OSX environment
+language: objective-c
+
+before_script:
+  # set the JAVA_HOME which is not set by default for OSX Travis-CI workers
+  - export "JAVA_HOME=`/usr/libexec/java_home`"
+
+  # Get hold of ANT.
+  - brew update
+  - brew install ant
+  - brew install caskroom/cask/brew-cask
+  - brew cask install flash-player-debugger
+  - wget -O /usr/local/android-sdk_r23.0.2-macosx.zip https://dl.google.com/android/android-sdk_r23.0.2-macosx.zip
+  - unzip -d /usr/local /usr/local/android-sdk_r23.0.2-macosx.zip
+  - export ANDROID_HOME=/usr/local/android-sdk-macosx
+  - export PATH=$PATH:$ANDROID_HOME/tools
+  - ( sleep 1 && while [ 1 ]; do sleep 1; echo y; done ) | android update sdk --all --no-ui --filter platform-tool,android-19,sysimg-19,build-tools-19.1.0,extra-android-support,sys-img-armeabi-v7a-android-19
+
+  # Grab SDK
+  - mkdir -p air_sdk
+  - wget -O AIRSDK_Compiler.tbz2 http://airdownload.adobe.com/air/mac/download/latest/AIRSDK_Compiler.tbz2
+  - tar -xjf AIRSDK_Compiler.tbz2 -C air_sdk
+  - mkdir -p air_sdk/frameworks/libs/player/21.0/
+  - wget -O playerglobal.swc http://fpdownload.macromedia.com/get/flashplayer/installers/archive/playerglobal/playerglobal21_0.swc
+  - cp -f playerglobal.swc air_sdk/frameworks/libs/player/21.0/
+  - export AIR_SDK_HOME="$TRAVIS_BUILD_DIR/air_sdk"
+
+script: ant -DIGNORE_MOBILE_TARGET=true
