@@ -18,7 +18,7 @@
 	<target name="swc" description="Build SWC library">
     	<echo message="Using AIR SDK: ${AIR_SDK_HOME}"/>
 		<java jar="${compc}" fork="true">
-			<arg value="-load-config=${airsdk_config}"/>
+			<arg value="-load-config=${air_mobile_config}"/>
 			<arg value="-swf-version=${swc_version}"/>
 			<arg value="-source-path+=source/as3/src"/>
 			<arg value="-include-sources+=source/as3/src"/>

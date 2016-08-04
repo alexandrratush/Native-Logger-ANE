@@ -9,7 +9,7 @@
 	<target name="build" description="Build android apk">
 		<echo message="Build air swf"/>
 		<java jar="${mxmlc}" dir="${basedir}" fork="true" failonerror="true">
-			<arg value="-load-config=${airsdk_config}"/>
+			<arg value="-load-config=${air_mobile_config}"/>
 			<arg value="-swf-version=${swf_version}"/>
 			<arg value="-source-path+=src"/>
 			<arg value="src/${root_class}"/>
