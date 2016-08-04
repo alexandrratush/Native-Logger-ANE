@@ -8,7 +8,7 @@
 
      minimumPatchLevel - The minimum patch level of the AIR runtime required to run the application. Optional. -->
 
-<application xmlns="http://ns.adobe.com/air/application/18.0">
+<application xmlns="http://ns.adobe.com/air/application/21.0">
 
     <!-- A universally unique application identifier. Must be unique across all AIR applications.
          Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
@@ -99,10 +99,10 @@
         <fullScreen>false</fullScreen>
 
         <!-- The render mode for the app (either auto, cpu, gpu, or direct). Optional. Default auto -->
-        <!--<renderMode></renderMode>-->
+        <renderMode>direct</renderMode>
 
         <!-- Whether the default direct mode rendering context allocates storage for depth and stencil buffers.  Optional.  Default false. -->
-        <!--<depthAndStencil></depthAndStencil>-->
+        <depthAndStencil>true</depthAndStencil>
 
         <!-- Whether or not to pan when a soft keyboard is raised or lowered (either "pan" or "none").  Optional.  Defaults "pan." -->
         <!--<softKeyboardBehavior></softKeyboardBehavior>-->

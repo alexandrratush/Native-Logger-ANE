@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="Flex" version="4">
+  <component name="FlexBuildConfigurationManager" active="demo">
+    <configurations>
+      <configuration name="demo" target-platform="Mobile" pure-as="true" main-class="Main" output-file="demo.swf" output-folder="$MODULE_DIR$/out/production/demo">
+        <dependencies target-player="21.0">
+          <entries>
+            <entry library-id="d23a6648-1be8-44f5-8b9d-cbc221bebd09">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="e9d6996c-b06d-4afa-a912-6a525fb4bead">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="21.0.0" />
+        </dependencies>
+        <compiler-options />
+        <packaging-air-desktop />
+        <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/Main-app.xml" package-file-name="demo" />
+        <packaging-ios package-file-name="demo" />
+      </configuration>
+    </configurations>
+    <compiler-options />
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="21.0.0" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="d23a6648-1be8-44f5-8b9d-cbc221bebd09" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/ane" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/ane" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="e9d6996c-b06d-4afa-a912-6a525fb4bead" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" />
+      </library>
+    </orderEntry>
+  </component>
+</module>

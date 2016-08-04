@@ -1,27 +1,24 @@
 package
 {
 
-    import com.aratush.ane.NativeLoggerExtension;
-    import com.bit101.components.PushButton;
+    import feathers.utils.ScreenDensityScaleFactorManager;
 
     import flash.display.Sprite;
     import flash.display.StageAlign;
     import flash.display.StageScaleMode;
     import flash.events.Event;
-    import flash.events.MouseEvent;
+
+    import starling.core.Starling;
 
     public class Main extends Sprite
     {
-        private var _buttonDebug:PushButton;
-        private var _buttonError:PushButton;
-        private var _buttonInfo:PushButton;
-        private var _buttonVerbose:PushButton;
-        private var _buttonWarn:PushButton;
+        private var _starling:Starling;
+        private var _scaler:ScreenDensityScaleFactorManager;
 
         public function Main()
         {
             if (stage) init();
-            addEventListener(Event.ADDED_TO_STAGE, init);
+            else addEventListener(Event.ADDED_TO_STAGE, init);
         }
 
         private function init(e:Event = null):void
@@ -31,39 +28,26 @@ package
             stage.align = StageAlign.TOP_LEFT;
             stage.scaleMode = StageScaleMode.NO_SCALE;
 
-            NativeLoggerExtension.getInstance().init();
+            Starling.multitouchEnabled = true;
+            _starling = new Starling(ApplicationRoot, stage, null, null);
+            _starling.supportHighResolutions = true;
+            _starling.skipUnchangedFrames = true;
+            _starling.start();
 
-            _buttonDebug = new PushButton(this, 10, 10, "Debug", buttonLogClickHandler);
-            _buttonError = new PushButton(this, 10, 50, "Error", buttonLogClickHandler);
-            _buttonInfo = new PushButton(this, 10, 90, "Info", buttonLogClickHandler);
-            _buttonVerbose = new PushButton(this, 10, 130, "Verbose", buttonLogClickHandler);
-            _buttonWarn = new PushButton(this, 10, 170, "Warn", buttonLogClickHandler);
+            _scaler = new ScreenDensityScaleFactorManager(_starling);
+            stage.addEventListener(Event.DEACTIVATE, stageDeactivateHandler, false, 0, true);
         }
 
-        private function buttonLogClickHandler(e:MouseEvent):void
+        private function stageDeactivateHandler(event:Event):void
         {
-            switch (e.currentTarget)
-            {
-                case _buttonDebug:
-                    NativeLoggerExtension.getInstance().debug("NativeLoggerExtension", "Debug message");
-                    break;
+            _starling.stop(true);
+            stage.addEventListener(Event.ACTIVATE, stageActivateHandler, false, 0, true);
+        }
 
-                case _buttonError:
-                    NativeLoggerExtension.getInstance().error("NativeLoggerExtension", "Error message");
-                    break;
-
-                case _buttonInfo:
-                    NativeLoggerExtension.getInstance().info("NativeLoggerExtension", "Info message");
-                    break;
-
-                case _buttonVerbose:
-                    NativeLoggerExtension.getInstance().verbose("NativeLoggerExtension", "Verbose message");
-                    break;
-
-                case _buttonWarn:
-                    NativeLoggerExtension.getInstance().warn("NativeLoggerExtension", "Warn message");
-                    break;
-            }
+        private function stageActivateHandler(event:Event):void
+        {
+            stage.addEventListener(Event.ACTIVATE, stageActivateHandler);
+            _starling.start();
         }
     }
 }
