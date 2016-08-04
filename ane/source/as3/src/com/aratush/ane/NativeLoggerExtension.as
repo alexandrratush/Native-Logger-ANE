@@ -1,5 +1,6 @@
 package com.aratush.ane
 {
+
     import flash.events.EventDispatcher;
     import flash.events.StatusEvent;
     import flash.external.ExtensionContext;
@@ -40,26 +41,31 @@ package com.aratush.ane
 
         public function debug(tag:String, message:String):void
         {
+            init();
             _context.call("debug", tag, message);
         }
 
         public function error(tag:String, message:String):void
         {
+            init();
             _context.call("error", tag, message);
         }
 
         public function info(tag:String, message:String):void
         {
+            init();
             _context.call("info", tag, message);
         }
 
         public function verbose(tag:String, message:String):void
         {
+            init();
             _context.call("verbose", tag, message);
         }
 
         public function warn(tag:String, message:String):void
         {
+            init();
             _context.call("warn", tag, message);
         }
 
