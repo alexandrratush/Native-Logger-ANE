@@ -17,7 +17,7 @@ This ane is using the [**android.util.Log**](http://developer.android.com/intl/r
 </extensions>
 ```
 
-###API
+####API
 
 * `NativeLoggerExtension.getInstance().verbose("tag", "message");` - Send a VERBOSE log message.
 * `NativeLoggerExtension.getInstance().debug("tag", "message");` - Send a DEBUG log message.
