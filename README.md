@@ -1,5 +1,5 @@
 #Native Logger ANE (Android)
-[![Build Status](https://travis-ci.org/alexandrratush/Native-Logger-ANE.svg?branch=master)](https://travis-ci.org/alexandrratush/Native-Logger-ANativeLoggerExtension.getInstance().debug("tag", "message");lexandrratush/Native-Logger-ANE.svg?branch=master)](https://travis-ci.org/alexandrratush/Native-Logger-ANE)
+[![Build Status](https://travis-ci.org/alexandrratush/Native-Logger-ANE.svg?branch=master)](https://travis-ci.org/alexandrratush/Native-Logger-ANE)
 [![GitHub version](https://badge.fury.io/gh/alexandrratush%2FNative-Logger-ANE.svg)](https://badge.fury.io/gh/alexandrratush%2FNative-Logger-ANE)
 ![](https://reposs.herokuapp.com/?path=alexandrratush/Native-Logger-ANE&style=flat)
 ######Native Extension for Adobe AIR
