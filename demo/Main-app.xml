@@ -125,31 +125,15 @@
     <!--<programMenuFolder></programMenuFolder>-->
 
     <!-- The icon the system uses for the application. For at least one resolution, specify the path to a PNG file included in the AIR package. Optional. -->
-    <!--<icon>
-        <image16x16></image16x16>
-        <image29x29></image29x29>
-        <image32x32></image32x32>
-        <image36x36></image36x36>
-        <image40x40></image40x40>
-        <image48x48></image48x48>
-        <image50x50></image50x50>
-        <image57x57></image57x57>
-        <image58x58></image58x58>
-        <image60x60></image60x60>
-        <image72x72></image72x72>
-        <image76x76></image76x76>
-        <image80x80></image80x80>
-        <image96x96></image96x96>
-        <image100x100></image100x100>
-        <image114x114></image114x114>
-        <image120x120></image120x120>
-        <image128x128></image128x128>
-        <image144x144></image144x144>
-        <image152x152></image152x152>
-        <image512x512></image512x512>
-        <image732x412></image732x412>
-        <image1024x1024></image1024x1024>
-    </icon>-->
+    <icon>
+        <image36x36>icons/icon-36.png</image36x36>
+        <image48x48>icons/icon-48.png</image48x48>
+        <image72x72>icons/icon-72.png</image72x72>
+        <image96x96>icons/icon-96.png</image96x96>
+        <image144x144>icons/icon-144.png</image144x144>
+        <image192x192>icons/icon-192.png</image192x192>
+        <image512x512>icons/icon-512.png</image512x512>
+    </icon>
 
     <!-- Whether the application handles the update when a user double-clicks an update version of the AIR file (true),
          or the default AIR application installer handles the update (false). Optional. Default false. -->

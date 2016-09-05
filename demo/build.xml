@@ -37,6 +37,9 @@
 			<arg value="${swf_name}"/>
 			<arg value="-extdir"/>
 			<arg value="ane"/>
+			<arg value="-C"/>
+			<arg value="${basedir}"/>
+			<arg value="icons"/>
 		</java>
 	</target>
 	
